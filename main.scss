@@ -1,0 +1,134 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    ul{
+        list-style: none;
+    }
+
+    a{
+        text-decoration: none;
+        color: #5D534A;
+    }
+
+}
+
+@mixin ease {
+    transition: all .25s ease-in-out;
+}
+
+body{
+    background-color: hsl(47, 18%, 90%);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    height: 100vh;
+}
+
+header{
+    background-color: rgba(255, 255, 255, .8);
+    text-align: center;
+    text-transform: uppercase;
+    font-size: .8rem;
+    font-weight: 500;
+    min-width: 295px;
+}
+
+nav.nav-grid{
+    // background-color: rgb(248, 180, 236);
+    padding: 1rem;
+    margin: 0 auto;
+    max-width: 960px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: "logo links";
+ 
+}
+
+
+.logo{
+    // background-color: rgb(213, 213, 213);
+    grid-area: logo;
+    justify-self: center;
+    align-self: start;
+    display: block;
+    padding-top: .5rem;
+
+    img{
+        width: 30px;
+        height: auto;
+    }
+    
+}
+
+.menu {
+    // background-color: rgb(68, 154, 230);
+    grid-area: links;
+    
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    
+    
+    .menu-link{
+        padding: .5rem 1rem;
+        cursor: pointer;
+        @include ease;
+        
+        &:hover{
+            background-color:hsl(47, 18%, 90%);
+        }
+    }
+    
+}
+
+.burger{
+    display: none;
+}
+
+
+
+@media screen and (max-width: 520px){
+    
+    nav.nav-grid{
+        // background-color: rgb(243, 150, 150);
+
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        grid-template-areas: "logo links burger";
+        
+    }
+    
+
+    .burger{
+        // background-color: rgb(213, 213, 213);
+        grid-area: burger;  
+        display: block;
+
+        
+        img{
+            width: 30px;
+            height: auto;
+        }  
+
+    }
+    
+    .menu {
+        // background-color: rgb(68, 154, 230);
+        margin-top: 3.5rem;
+        grid-area: links;
+
+        flex-direction: column;
+        justify-content: center;
+        
+        .menu-link{
+            width: 60%;
+            padding: .5rem 0;
+        }
+        display: none;
+    }
+
+}
