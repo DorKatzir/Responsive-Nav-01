@@ -103,12 +103,16 @@ nav.nav-grid {
     -ms-grid-column: 3;
     grid-area: burger;
     display: block;
+    cursor: pointer;
   }
   .burger img {
     width: 30px;
     height: auto;
   }
-  .menu {
+  .menu .menu-link {
+    display: none;
+  }
+  .menu.show {
     margin-top: 3.5rem;
     -ms-grid-row: 1;
     -ms-grid-column: 2;
@@ -120,10 +124,10 @@ nav.nav-grid {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    display: none;
   }
-  .menu .menu-link {
+  .menu.show .menu-link {
     width: 60%;
     padding: .5rem 0;
+    display: block;
   }
 }

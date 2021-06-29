@@ -107,6 +107,7 @@ nav.nav-grid{
         // background-color: rgb(213, 213, 213);
         grid-area: burger;  
         display: block;
+        cursor: pointer;
 
         
         img{
@@ -115,8 +116,16 @@ nav.nav-grid{
         }  
 
     }
+
     
     .menu {
+        // background-color: rgb(68, 154, 230);    
+        .menu-link{
+            display: none;
+        }       
+    }
+
+    .menu.show {
         // background-color: rgb(68, 154, 230);
         margin-top: 3.5rem;
         grid-area: links;
@@ -127,8 +136,13 @@ nav.nav-grid{
         .menu-link{
             width: 60%;
             padding: .5rem 0;
+            display: block;
         }
-        display: none;
+        
     }
+
+   
+
+  
 
 }
