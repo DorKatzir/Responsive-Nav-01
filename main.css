@@ -37,8 +37,8 @@ nav.nav-grid {
   max-width: 960px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto 1fr;
-      grid-template-columns: auto 1fr;
+  -ms-grid-columns: 50px 1fr;
+      grid-template-columns: 50px 1fr;
       grid-template-areas: "logo links";
 }
 
@@ -46,13 +46,12 @@ nav.nav-grid {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: logo;
-  -ms-grid-column-align: center;
-      justify-self: center;
-  -ms-flex-item-align: start;
-      -ms-grid-row-align: start;
-      align-self: start;
+  -ms-grid-column-align: start;
+      justify-self: start;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   display: block;
-  padding-top: .5rem;
 }
 
 .logo img {
@@ -78,8 +77,8 @@ nav.nav-grid {
 .menu .menu-link {
   padding: .5rem 1rem;
   cursor: pointer;
-  -webkit-transition: all .25s ease-in-out;
-  transition: all .25s ease-in-out;
+  -webkit-transition: all .35s ease-out;
+  transition: all .35s ease-out;
 }
 
 .menu .menu-link:hover {
@@ -94,28 +93,35 @@ nav.nav-grid {
   nav.nav-grid {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: auto 1fr auto;
-        grid-template-columns: auto 1fr auto;
-        grid-template-areas: "logo links burger";
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 1fr auto;
+        grid-template-rows: 1fr auto;
+        grid-template-areas: "logo brg" "links links";
   }
   .burger {
-    -ms-grid-row: 1;
-    -ms-grid-column: 3;
-    grid-area: burger;
     display: block;
-    cursor: pointer;
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    grid-area: brg;
+    -ms-grid-column-align: end;
+        justify-self: end;
   }
   .burger img {
     width: 30px;
     height: auto;
+    cursor: pointer;
   }
   .menu .menu-link {
+    -webkit-transform: translateY();
+            transform: translateY();
     display: none;
   }
   .menu.show {
-    margin-top: 3.5rem;
-    -ms-grid-row: 1;
-    -ms-grid-column: 2;
+    background-color: white;
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
     grid-area: links;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -124,10 +130,15 @@ nav.nav-grid {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    margin-top: 1rem;
+    -webkit-transition: all .35s ease-out;
+    transition: all .35s ease-out;
   }
   .menu.show .menu-link {
-    width: 60%;
+    width: 100%;
     padding: .5rem 0;
     display: block;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 }

@@ -18,7 +18,7 @@
 }
 
 @mixin ease {
-    transition: all .25s ease-in-out;
+    transition: all .35s ease-out;
 }
 
 body{
@@ -43,7 +43,7 @@ nav.nav-grid{
     margin: 0 auto;
     max-width: 960px;
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 50px 1fr;
     grid-template-areas: "logo links";
  
 }
@@ -52,10 +52,9 @@ nav.nav-grid{
 .logo{
     // background-color: rgb(213, 213, 213);
     grid-area: logo;
-    justify-self: center;
-    align-self: start;
+    justify-self: start;
+    align-self: center;
     display: block;
-    padding-top: .5rem;
 
     img{
         width: 30px;
@@ -85,8 +84,8 @@ nav.nav-grid{
     
 }
 
-.burger{
-    display: none;
+.burger{ 
+   display: none;
 }
 
 
@@ -97,48 +96,54 @@ nav.nav-grid{
         // background-color: rgb(243, 150, 150);
 
         display: grid;
-        grid-template-columns: auto 1fr auto;
-        grid-template-areas: "logo links burger";
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr auto;
+        grid-template-areas: 
+                "logo brg"
+                "links links";
         
     }
     
 
     .burger{
         // background-color: rgb(213, 213, 213);
-        grid-area: burger;  
-        display: block;
-        cursor: pointer;
-
+        display: block; 
+        grid-area: brg;
+        justify-self: end;         
         
         img{
             width: 30px;
             height: auto;
+            cursor: pointer;
         }  
 
     }
 
     
     .menu {
-        // background-color: rgb(68, 154, 230);    
-        .menu-link{
+        // background-color: rgb(68, 154, 230);     
+        .menu-link{        
+            transform: translateY(); 
             display: none;
         }       
     }
-
+    
     .menu.show {
-        // background-color: rgb(68, 154, 230);
-        margin-top: 3.5rem;
+        background-color: hsl(0, 0%, 100%);
         grid-area: links;
-
         flex-direction: column;
         justify-content: center;
+
+        margin-top: 1rem;;
         
         .menu-link{
-            width: 60%;
+            width: 100%;
             padding: .5rem 0;
             display: block;
+            transform: translateY(0);       
         }
         
+        @include ease;
     }
 
    
